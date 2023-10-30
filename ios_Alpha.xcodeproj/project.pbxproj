@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A6DB0922AEFDE680062D748 /* NSLayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DB0912AEFDE680062D748 /* NSLayoutConstraints.swift */; };
+		9A6DB0942AEFF3550062D748 /* BeerModel+Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DB0932AEFF3550062D748 /* BeerModel+Seeds.swift */; };
 		9A8B77C92AE6D021004AC66A /* BeersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77C82AE6D021004AC66A /* BeersInteractor.swift */; };
 		9A8B77CB2AE6D03F004AC66A /* BeersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77CA2AE6D03F004AC66A /* BeersPresenter.swift */; };
 		9A8B77CD2AE6D04E004AC66A /* BeersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77CC2AE6D04E004AC66A /* BeersRouter.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		9A6DB0912AEFDE680062D748 /* NSLayoutConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraints.swift; sourceTree = "<group>"; };
+		9A6DB0932AEFF3550062D748 /* BeerModel+Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeerModel+Seeds.swift"; sourceTree = "<group>"; };
 		9A8B77C82AE6D021004AC66A /* BeersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersInteractor.swift; sourceTree = "<group>"; };
 		9A8B77CA2AE6D03F004AC66A /* BeersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersPresenter.swift; sourceTree = "<group>"; };
 		9A8B77CC2AE6D04E004AC66A /* BeersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersRouter.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				9AFC0E132ADD94C9000FE0D7 /* BeerModel.swift */,
+				9A6DB0932AEFF3550062D748 /* BeerModel+Seeds.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				9A8B77C92AE6D021004AC66A /* BeersInteractor.swift in Sources */,
 				9A8B77E42AE6DB54004AC66A /* BeerTableViewCell.swift in Sources */,
 				9AFC0E212ADD9E38000FE0D7 /* Configuration.swift in Sources */,
+				9A6DB0942AEFF3550062D748 /* BeerModel+Seeds.swift in Sources */,
 				9AFC0E1D2ADD9D91000FE0D7 /* APIMethod.swift in Sources */,
 				9AD43D372AD45902009EA096 /* SceneDelegate.swift in Sources */,
 				9A8B77CB2AE6D03F004AC66A /* BeersPresenter.swift in Sources */,
