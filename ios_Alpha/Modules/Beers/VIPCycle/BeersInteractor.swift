@@ -13,8 +13,7 @@ protocol BeersBussinessLogic {
 }
 
 class BeersInteractor: BeersBussinessLogic {
-    
-    private let networkService = NetworkingService()
+    private let networkService: NetworkingServiceProtocol = NetworkingService()
     
     var presenter: BeersPresentationLogic?
     
