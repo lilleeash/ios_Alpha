@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let interactor = BeersInteractor()
         let presenter = BeersPresenter()
         let rootVC = BeersViewController()
-        let view = BeersUIView(dataSource: rootVC)
+        let view = BeersView(dataSource: rootVC)
         rootVC.interactor?.presenter = presenter
         rootVC.interactor = interactor
         rootVC.mainView = view

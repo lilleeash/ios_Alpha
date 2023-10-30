@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class BeersUIView: UIView {
+final class BeersView: UIView {
+    
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = .cyan
@@ -19,15 +20,24 @@ final class BeersUIView: UIView {
         backgroundColor = .white
         self.tableView.dataSource = dataSource
         setUpConstraints()
+        addSubviews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("BeersUIView couldn`t init")
     }
+}
+
+// MARK: - private
+
+private extension BeersView {
+    private func addSubviews() {
+        [tableView].forEach {
+            self.addSubview($0)
+        }
+    }
     
     private func setUpConstraints() {
-        addSubview(tableView)
-        
         NSLayoutConstraint.autoresizingMask([
             tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
