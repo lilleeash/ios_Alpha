@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A6DB0922AEFDE680062D748 /* NSLayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DB0912AEFDE680062D748 /* NSLayoutConstraints.swift */; };
 		9A8B77C92AE6D021004AC66A /* BeersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77C82AE6D021004AC66A /* BeersInteractor.swift */; };
 		9A8B77CB2AE6D03F004AC66A /* BeersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77CA2AE6D03F004AC66A /* BeersPresenter.swift */; };
 		9A8B77CD2AE6D04E004AC66A /* BeersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77CC2AE6D04E004AC66A /* BeersRouter.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A6DB0912AEFDE680062D748 /* NSLayoutConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraints.swift; sourceTree = "<group>"; };
 		9A8B77C82AE6D021004AC66A /* BeersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersInteractor.swift; sourceTree = "<group>"; };
 		9A8B77CA2AE6D03F004AC66A /* BeersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersPresenter.swift; sourceTree = "<group>"; };
 		9A8B77CC2AE6D04E004AC66A /* BeersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersRouter.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A6DB0902AEFDE570062D748 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9A6DB0912AEFDE680062D748 /* NSLayoutConstraints.swift */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
 		9A8B77C52AE6CF92004AC66A /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +208,7 @@
 		9AFC0E252ADD9EC1000FE0D7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9A6DB0902AEFDE570062D748 /* UIKit */,
 				9AFC0E262ADD9ECA000FE0D7 /* Foundation */,
 			);
 			path = Extension;
@@ -292,6 +303,7 @@
 				9A8B77CB2AE6D03F004AC66A /* BeersPresenter.swift in Sources */,
 				9AFC0E242ADD9EBD000FE0D7 /* Bool + Extension.swift in Sources */,
 				9AFC0E0E2ADD9376000FE0D7 /* Networking.swift in Sources */,
+				9A6DB0922AEFDE680062D748 /* NSLayoutConstraints.swift in Sources */,
 				9A8B77E22AE6DA82004AC66A /* BeersView.swift in Sources */,
 				9A8B77CD2AE6D04E004AC66A /* BeersRouter.swift in Sources */,
 				9AFC0E142ADD94C9000FE0D7 /* BeerModel.swift in Sources */,
