@@ -15,13 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
 //        let presenter = BeersPresenter()
         let interactor = BeersInteractor()
-        let router = BeersRouter()
         let presenter = BeersPresenter()
         let rootVC = BeersViewController()
         let view = BeersUIView(dataSource: rootVC)
         rootVC.interactor?.presenter = presenter
         rootVC.interactor = interactor
-        rootVC.router = router
         rootVC.mainView = view
         window = UIWindow(windowScene: scene)
         window?.rootViewController = rootVC

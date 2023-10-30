@@ -8,7 +8,6 @@
 import UIKit
 
 protocol BeersDisplayLogic {
-    var router: BeersRoutingLogic? { get }
     var interactor: BeersBussinessLogic? { get }
     var mainView: UIView? { get }
     var model: BeersModel? { get }
@@ -17,7 +16,6 @@ protocol BeersDisplayLogic {
 
 class BeersViewController: UIViewController, BeersDisplayLogic {
     var mainView: UIView?
-    var router: BeersRoutingLogic?
     var interactor: BeersBussinessLogic?
     var model: BeersModel?
 
