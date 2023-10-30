@@ -11,4 +11,10 @@ enum APIError: Error {
     case invalidRequest
     case decodingError
     case noData
+    case notFound
+    case unauthorized
+    case serverError
+    case forbidden
+    case unknownError
+    case error5xx(_ statusCode: Int)
 }
