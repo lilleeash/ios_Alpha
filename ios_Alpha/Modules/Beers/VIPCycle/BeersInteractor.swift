@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol ViewControllerBussinessLogic {
+protocol BeersBussinessLogic {
     func requestData()
-    var presenter: ViewControllerPresentationLogic? { get set }
+    var presenter: BeersPresentationLogic? { get set }
 }
 
-class BeersInteractor: ViewControllerBussinessLogic {
+class BeersInteractor: BeersBussinessLogic {
     
     private let networkService = NetworkingService()
     
-    var presenter: ViewControllerPresentationLogic?
+    var presenter: BeersPresentationLogic?
     
     func requestData() {
         networkService.getAllBears { [weak self] result in

@@ -7,47 +7,28 @@
 
 import UIKit
 
-protocol BeersViewControllerDisplayLogic {
-    var router: ViewControllerRoutingLogic? { get }
-    var interactor: ViewControllerBussinessLogic? { get }
+protocol BeersDisplayLogic {
+    var router: BeersRoutingLogic? { get }
+    var interactor: BeersBussinessLogic? { get }
     var mainView: UIView? { get }
     var model: BeersModel? { get }
     func resultData(data: BeersModel)
 }
 
-class BeersViewController: UIViewController, BeersViewControllerDisplayLogic {
+class BeersViewController: UIViewController, BeersDisplayLogic {
     var mainView: UIView?
-    var router: ViewControllerRoutingLogic?
-    var interactor: ViewControllerBussinessLogic?
+    var router: BeersRoutingLogic?
+    var interactor: BeersBussinessLogic?
     var model: BeersModel?
-    
-    private lazy var tableView: UITableView = {
-        let table = UITableView()
-        table.backgroundColor = .cyan
-        table.translatesAutoresizingMaskIntoConstraints = false
-        return table
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view = mainView
         interactor?.requestData()
-        setUpConstraints()
     }
     
     func resultData(data: BeersModel) {
         self.model = data
-    }
-    
-    private func setUpConstraints() {
-        view.addSubview(tableView)
-        
-        NSLayoutConstraint.activate([
-            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        ])
     }
 }
 
@@ -58,12 +39,12 @@ extension BeersViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let beer = model?[indexPath.row] else { return UITableViewCell() }
-        let cell = UITableViewCell()
-        var configuration = cell.defaultContentConfiguration()
-        configuration.text = beer.name
-        configuration.secondaryText = beer.tagline
-        cell.contentConfiguration = configuration
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BeerTableViewCell.identifier, for: indexPath) as? BeerTableViewCell else { return UITableViewCell() }
+        
+        guard let model else { return UITableViewCell() }
+        
+        cell.configure(with: model[indexPath.row])
+        
         return cell
     }
 }

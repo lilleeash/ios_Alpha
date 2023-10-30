@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol ViewControllerPresentationLogic {
+protocol BeersPresentationLogic {
     func presentData(data: BeersModel)
 }
 
-class BeersPresenter: ViewControllerPresentationLogic {
+class BeersPresenter: BeersPresentationLogic {
     
-    var displayViewController: BeersViewControllerDisplayLogic?
+    var displayViewController: BeersDisplayLogic?
     
     func presentData(data: BeersModel) {
         let result = data

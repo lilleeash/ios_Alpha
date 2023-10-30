@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-protocol ViewControllerRoutingLogic {
+protocol BeersRoutingLogic {
     func routeToSecondViewController(_ data: BeersModel?)
 }
 
-class BeersRouter: NSObject, ViewControllerRoutingLogic {
+class BeersRouter: NSObject, BeersRoutingLogic {
     
     weak var viewController: BeersViewController?
     weak var secondViewController : BeerDetailViewController?
