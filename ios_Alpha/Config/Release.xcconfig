@@ -1,0 +1,12 @@
+//
+//  Release.xcconfig
+//  ios_Alpha
+//
+//  Created by Darya Zhitova on 16.10.2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+DEBUG_LOGGER = NO
+BASE_URL = https:/$()/api.punkapi.com/v2
