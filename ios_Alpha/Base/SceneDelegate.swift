@@ -13,14 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
-//        let presenter = BeersPresenter()
-        let rootVC = BeersViewController()
-        let interactor = BeersInteractor()
-        let presenter = BeersPresenter()
-        rootVC.interactor?.presenter = presenter
-        rootVC.interactor = interactor
+        let viewController = BeersModuleFactory.build()
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = rootVC
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
     

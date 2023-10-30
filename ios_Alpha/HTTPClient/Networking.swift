@@ -11,7 +11,7 @@ protocol NetworkingServiceProtocol {
     func fetchBeers() async throws -> BeersModel
 }
 
-final class NetworkingService: NetworkingServiceProtocol {
+final class NetworkingService {
     
     private let session: URLSession
     private let decoder: JSONDecoder
@@ -22,7 +22,9 @@ final class NetworkingService: NetworkingServiceProtocol {
         self.decoder = JSONDecoder()
         self.session = URLSession.shared
     }
-    
+}
+
+extension NetworkingService: NetworkingServiceProtocol {
     func fetchBeers() async throws -> BeersModel {
         guard let request = asURLRequest(path: "/beers") else {
             throw APIError.invalidRequest
@@ -38,7 +40,9 @@ final class NetworkingService: NetworkingServiceProtocol {
         let fetchedData = try JSONDecoder().decode(BeersModel.self, from: data)
         return fetchedData
     }
-    
+}
+
+private extension NetworkingService {
     private func asURLRequest(path: String, method: APIMethod = .get) -> URLRequest? {
         guard let finalURL = URL(string: "https://api.punkapi.com/v2" + path) else { return nil }
         var request = URLRequest(url: finalURL)
