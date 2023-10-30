@@ -12,7 +12,6 @@
 		9A8B77C92AE6D021004AC66A /* BeersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77C82AE6D021004AC66A /* BeersInteractor.swift */; };
 		9A8B77CB2AE6D03F004AC66A /* BeersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77CA2AE6D03F004AC66A /* BeersPresenter.swift */; };
 		9A8B77CD2AE6D04E004AC66A /* BeersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77CC2AE6D04E004AC66A /* BeersRouter.swift */; };
-		9A8B77D02AE6D22A004AC66A /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77CF2AE6D22A004AC66A /* BeerDetailViewController.swift */; };
 		9A8B77D22AE6D443004AC66A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77D12AE6D443004AC66A /* APIError.swift */; };
 		9A8B77E22AE6DA82004AC66A /* BeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77E12AE6DA82004AC66A /* BeersView.swift */; };
 		9A8B77E42AE6DB54004AC66A /* BeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B77E32AE6DB54004AC66A /* BeerTableViewCell.swift */; };
@@ -35,7 +34,6 @@
 		9A8B77C82AE6D021004AC66A /* BeersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersInteractor.swift; sourceTree = "<group>"; };
 		9A8B77CA2AE6D03F004AC66A /* BeersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersPresenter.swift; sourceTree = "<group>"; };
 		9A8B77CC2AE6D04E004AC66A /* BeersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersRouter.swift; sourceTree = "<group>"; };
-		9A8B77CF2AE6D22A004AC66A /* BeerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailViewController.swift; sourceTree = "<group>"; };
 		9A8B77D12AE6D443004AC66A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		9A8B77E12AE6DA82004AC66A /* BeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersView.swift; sourceTree = "<group>"; };
 		9A8B77E32AE6DB54004AC66A /* BeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				9A8B77C72AE6CF9E004AC66A /* Beers */,
-				9A8B77CE2AE6D1E4004AC66A /* BeerDetail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -103,14 +100,6 @@
 				9A8B77EB2AE6DBCB004AC66A /* Router */,
 			);
 			path = Beers;
-			sourceTree = "<group>";
-		};
-		9A8B77CE2AE6D1E4004AC66A /* BeerDetail */ = {
-			isa = PBXGroup;
-			children = (
-				9A8B77CF2AE6D22A004AC66A /* BeerDetailViewController.swift */,
-			);
-			path = BeerDetail;
 			sourceTree = "<group>";
 		};
 		9A8B77E72AE6DB99004AC66A /* Views */ = {
@@ -296,7 +285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AD43D392AD45902009EA096 /* BeersViewController.swift in Sources */,
-				9A8B77D02AE6D22A004AC66A /* BeerDetailViewController.swift in Sources */,
 				9AD43D352AD45902009EA096 /* AppDelegate.swift in Sources */,
 				9A8B77C92AE6D021004AC66A /* BeersInteractor.swift in Sources */,
 				9A8B77E42AE6DB54004AC66A /* BeerTableViewCell.swift in Sources */,
