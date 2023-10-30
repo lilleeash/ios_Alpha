@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BeerTableViewCell: UITableViewCell {
+class BeersTableViewCell: UITableViewCell {
     static let identifier = "BeerTableViewCell"
     
     private let titleLabel: UILabel = {

@@ -7,25 +7,21 @@
 
 import UIKit
 
-final class BeerTableManager: NSObject {
-    var tableData: BeersModel
-    
-    init(tableData: BeersModel) {
-        self.tableData = tableData
-    }
+final class BeersTableManager: NSObject {
+    var tableData: BeersModel = []
 }
 
 // MARK: - UITableViewDataSource
-extension BeerTableManager: UITableViewDataSource {
+extension BeersTableManager: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: BeerTableViewCell.identifier,
+            withIdentifier: BeersTableViewCell.identifier,
             for: indexPath
-        ) as? BeerTableViewCell else { return UITableViewCell() }
+        ) as? BeersTableViewCell else { return UITableViewCell() }
         
         cell.configure(with: tableData[indexPath.row])
         

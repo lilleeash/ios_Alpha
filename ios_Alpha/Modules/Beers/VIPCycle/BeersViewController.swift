@@ -9,19 +9,26 @@ import UIKit
 
 protocol BeersDisplayLogic {
     var interactor: BeersBussinessLogic? { get }
-    var mainView: UIView? { get }
     var model: BeersModel? { get }
+    var contentView: BeersView { get }
     func resultData(data: BeersModel)
 }
 
 class BeersViewController: UIViewController, BeersDisplayLogic {
-    var mainView: UIView?
     var interactor: BeersBussinessLogic?
     var model: BeersModel?
+    
+    lazy var contentView: BeersView = {
+        let view = BeersView()
+        return view
+    }()
+    
+    override func loadView() {
+        view = contentView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = mainView
         Task {
             try await interactor?.requestData()
         }

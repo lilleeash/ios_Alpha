@@ -17,6 +17,7 @@ class BeersPresenter: BeersPresentationLogic {
     
     func presentData(data: BeersModel) {
         let result = data
-        self.displayViewController?.resultData(data: result)
+//        self.displayViewController?.resultData(data: result)
+        self.displayViewController?.contentView.configure(with: result)
     }
 }

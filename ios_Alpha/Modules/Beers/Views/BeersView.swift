@@ -12,19 +12,26 @@ final class BeersView: UIView {
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = .cyan
+        table.dataSource = tableManager
         return table
     }()
     
-    init(dataSource: UITableViewDataSource) {
+    private lazy var tableManager = BeersTableManager()
+    
+    init() {
         super.init(frame: .zero)
         backgroundColor = .white
-        self.tableView.dataSource = dataSource
         setUpConstraints()
         addSubviews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("BeersUIView couldn`t init")
+    }
+    
+    func configure(with viewModel: BeersModel) {
+        tableManager.tableData = viewModel
+        tableView.reloadData()
     }
 }
 
