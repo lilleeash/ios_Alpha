@@ -8,7 +8,7 @@
 import Foundation
 
 protocol BeersBussinessLogic {
-    func requestData()
+    func requestData() async throws
     var presenter: BeersPresentationLogic? { get set }
 }
 
@@ -18,14 +18,12 @@ class BeersInteractor: BeersBussinessLogic {
     
     var presenter: BeersPresentationLogic?
     
-    func requestData() {
-        networkService.getAllBears { [weak self] result in
-            switch result {
-            case .success(let success):
-                self?.presenter?.presentData(data: success)
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
+    func requestData() async throws {
+        do {
+            let fetchedBeers = try await networkService.fetchBeers()
+            self.presenter?.presentData(data: fetchedBeers)
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

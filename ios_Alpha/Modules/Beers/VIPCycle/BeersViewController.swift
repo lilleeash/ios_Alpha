@@ -22,7 +22,9 @@ class BeersViewController: UIViewController, BeersDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = mainView
-        interactor?.requestData()
+        Task {
+            try await interactor?.requestData()
+        }
     }
     
     func resultData(data: BeersModel) {
