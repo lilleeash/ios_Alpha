@@ -210,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				9AFC0E232ADD9EBD000FE0D7 /* Bool + Extension.swift */,
+				9A6DB09F2AF034BE0062D748 /* Array+Subscript.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -285,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AD43D392AD45902009EA096 /* BeersViewController.swift in Sources */,
+				9A6DB0A02AF034BE0062D748 /* Array+Subscript.swift in Sources */,
 				9AD43D352AD45902009EA096 /* AppDelegate.swift in Sources */,
 				9A8B77C92AE6D021004AC66A /* BeersInteractor.swift in Sources */,
 				9A8B77E42AE6DB54004AC66A /* BeersTableViewCell.swift in Sources */,
