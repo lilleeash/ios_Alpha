@@ -7,12 +7,11 @@
 
 final class BeersModuleFactory {
     class func build() -> BeersViewController {
-        let viewController = BeersViewController()
-        let interactor: BeersBussinessLogic = BeersInteractor()
-        let presenter: BeersPresentationLogic = BeersPresenter()
+        let presenter = BeersPresenter()
+        let interactor = BeersInteractor(presenter: presenter)
+        let viewController = BeersViewController(interactor: interactor)
         
-        viewController.interactor = interactor
-        viewController.interactor?.presenter = presenter
+        presenter.viewController = viewController
         
         return viewController
     }

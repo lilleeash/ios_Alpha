@@ -8,7 +8,7 @@
 import UIKit
 
 final class BeersTableManager: NSObject {
-    var tableData: BeersModel = []
+    var tableData: BeersDataFlow.PresentModuleData.ViewModel = []
 }
 
 // MARK: - UITableViewDataSource
@@ -18,12 +18,17 @@ extension BeersTableManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: BeersTableViewCell.identifier,
-            for: indexPath
-        ) as? BeersTableViewCell else { return UITableViewCell() }
+        guard
+            let beerViewModel = tableData[safe: indexPath.row],
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: BeersTableViewCell.identifier,
+                for: indexPath
+            ) as? BeersTableViewCell
+        else {
+            return UITableViewCell()
+        }
         
-        cell.configure(with: tableData[indexPath.row])
+        cell.configure(with: beerViewModel)
         
         return cell
     }

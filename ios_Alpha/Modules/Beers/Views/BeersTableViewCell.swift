@@ -56,8 +56,8 @@ class BeersTableViewCell: UITableViewCell {
         ])
     }
     
-    func configure(with item: BeerModel) {
-        titleLabel.text = item.name
+    func configure(with item: BeerViewModel) {
+        titleLabel.text = item.title
         taglineLabel.text = item.tagline
     }
 }

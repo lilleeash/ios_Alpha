@@ -13,6 +13,7 @@ final class BeersView: UIView {
         let table = UITableView()
         table.backgroundColor = .cyan
         table.dataSource = tableManager
+        table.register(BeersTableViewCell.self, forCellReuseIdentifier: BeersTableViewCell.identifier)
         return table
     }()
     
@@ -21,15 +22,15 @@ final class BeersView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
-        setUpConstraints()
         addSubviews()
+        setUpConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("BeersUIView couldn`t init")
     }
     
-    func configure(with viewModel: BeersModel) {
+    func configure(with viewModel: BeersDataFlow.PresentModuleData.ViewModel) {
         tableManager.tableData = viewModel
         tableView.reloadData()
     }
