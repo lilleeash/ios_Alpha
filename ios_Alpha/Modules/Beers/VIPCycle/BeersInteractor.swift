@@ -9,18 +9,24 @@ import Foundation
 
 protocol BeersBussinessLogic {
     func requestData() async throws
-    var presenter: BeersPresentationLogic? { get set }
 }
 
 class BeersInteractor: BeersBussinessLogic {
-    private let networkService: NetworkingServiceProtocol = NetworkingService()
     
-    var presenter: BeersPresentationLogic?
+    private let presenter: BeersPresentationLogic
+    private let networkService: NetworkingServiceProtocol
+    
+    init(presenter: BeersPresentationLogic, networkService: NetworkingServiceProtocol = NetworkingService()) {
+        self.presenter = presenter
+        self.networkService = networkService
+    }
     
     func requestData() async throws {
         do {
             let fetchedBeers = try await networkService.fetchBeers()
-            self.presenter?.presentData(data: fetchedBeers)
+            DispatchQueue.main.async {
+                self.presenter.presentData(data: fetchedBeers)
+            }
         } catch {
             print(error.localizedDescription)
         }

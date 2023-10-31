@@ -7,21 +7,27 @@
 
 import UIKit
 
-protocol BeersDisplayLogic {
-    var interactor: BeersBussinessLogic? { get }
-    var model: BeersModel? { get }
-    var contentView: BeersView { get }
-    func resultData(data: BeersModel)
+protocol BeersDisplayLogic: AnyObject {
+    func displayBeers(_ viewModel: BeersDataFlow.PresentModuleData.ViewModel)
 }
 
-class BeersViewController: UIViewController, BeersDisplayLogic {
-    var interactor: BeersBussinessLogic?
-    var model: BeersModel?
+final class BeersViewController: UIViewController, BeersDisplayLogic {
     
     lazy var contentView: BeersView = {
         let view = BeersView()
         return view
     }()
+    
+    private let interactor: BeersBussinessLogic
+    
+    init(interactor: BeersBussinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = contentView
@@ -30,11 +36,11 @@ class BeersViewController: UIViewController, BeersDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         Task {
-            try await interactor?.requestData()
+            try await interactor.requestData()
         }
     }
     
-    func resultData(data: BeersModel) {
-        self.model = data
+    func displayBeers(_ viewModel: BeersDataFlow.PresentModuleData.ViewModel) {
+        contentView.configure(with: viewModel)
     }
 }

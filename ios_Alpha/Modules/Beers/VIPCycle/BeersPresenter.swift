@@ -8,16 +8,18 @@
 import Foundation
 
 protocol BeersPresentationLogic {
-    func presentData(data: BeersModel)
+    func presentData(data: BeersDataFlow.PresentModuleData.Responce)
 }
 
 class BeersPresenter: BeersPresentationLogic {
     
-    var displayViewController: BeersDisplayLogic?
+    weak var viewController: BeersDisplayLogic?
     
-    func presentData(data: BeersModel) {
-        let result = data
-//        self.displayViewController?.resultData(data: result)
-        self.displayViewController?.contentView.configure(with: result)
+    func presentData(data: BeersDataFlow.PresentModuleData.Responce) {
+        let viewModel = data.map {
+            BeerViewModel(title: $0.name, tagline: $0.tagline)
+        }
+        
+        self.viewController?.displayBeers(viewModel)
     }
 }
