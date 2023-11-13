@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BeerTableViewCell: UITableViewCell {
+class BeersTableViewCell: UITableViewCell {
     static let identifier = "BeerTableViewCell"
     
     private let titleLabel: UILabel = {
@@ -56,8 +56,8 @@ class BeerTableViewCell: UITableViewCell {
         ])
     }
     
-    func configure(with item: BeerModel) {
-        titleLabel.text = item.name
+    func configure(with item: BeerViewModel) {
+        titleLabel.text = item.title
         taglineLabel.text = item.tagline
     }
 }

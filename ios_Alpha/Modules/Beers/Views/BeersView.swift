@@ -7,17 +7,22 @@
 
 import UIKit
 
-final class BeersUIView: UIView {
+final class BeersView: UIView {
+    
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = .cyan
+        table.dataSource = tableManager
+        table.register(BeersTableViewCell.self, forCellReuseIdentifier: BeersTableViewCell.identifier)
         return table
     }()
     
-    init(dataSource: UITableViewDataSource) {
+    private lazy var tableManager = BeersTableManager()
+    
+    init() {
         super.init(frame: .zero)
         backgroundColor = .white
-        self.tableView.dataSource = dataSource
+        addSubviews()
         setUpConstraints()
     }
     
@@ -25,9 +30,22 @@ final class BeersUIView: UIView {
         fatalError("BeersUIView couldn`t init")
     }
     
+    func configure(with viewModel: BeersDataFlow.PresentModuleData.ViewModel) {
+        tableManager.tableData = viewModel
+        tableView.reloadData()
+    }
+}
+
+// MARK: - private
+
+private extension BeersView {
+    private func addSubviews() {
+        [tableView].forEach {
+            self.addSubview($0)
+        }
+    }
+    
     private func setUpConstraints() {
-        addSubview(tableView)
-        
         NSLayoutConstraint.autoresizingMask([
             tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),

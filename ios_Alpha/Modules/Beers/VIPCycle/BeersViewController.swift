@@ -7,42 +7,40 @@
 
 import UIKit
 
-protocol BeersDisplayLogic {
-    var interactor: BeersBussinessLogic? { get }
-    var mainView: UIView? { get }
-    var model: BeersModel? { get }
-    func resultData(data: BeersModel)
+protocol BeersDisplayLogic: AnyObject {
+    func displayBeers(_ viewModel: BeersDataFlow.PresentModuleData.ViewModel)
 }
 
-class BeersViewController: UIViewController, BeersDisplayLogic {
-    var mainView: UIView?
-    var interactor: BeersBussinessLogic?
-    var model: BeersModel?
+final class BeersViewController: UIViewController, BeersDisplayLogic {
+    
+    lazy var contentView: BeersView = {
+        let view = BeersView()
+        return view
+    }()
+    
+    private let interactor: BeersBussinessLogic
+    
+    init(interactor: BeersBussinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        view = contentView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = mainView
-        interactor?.requestData()
+        Task {
+            try await interactor.requestData()
+        }
     }
     
-    func resultData(data: BeersModel) {
-        self.model = data
-    }
-}
-
-extension BeersViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let beers = model?.count else { return 0 }
-        return beers
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BeerTableViewCell.identifier, for: indexPath) as? BeerTableViewCell else { return UITableViewCell() }
-        
-        guard let model else { return UITableViewCell() }
-        
-        cell.configure(with: model[indexPath.row])
-        
-        return cell
+    func displayBeers(_ viewModel: BeersDataFlow.PresentModuleData.ViewModel) {
+        contentView.configure(with: viewModel)
     }
 }
