@@ -11,5 +11,6 @@ enum BeersDataFlow {
     enum PresentModuleData {
         typealias Responce = BeersModel
         typealias ViewModel = [BeerViewModel]
+        typealias ItemViewModel = BeerViewModel
     }
 }

@@ -102,7 +102,6 @@
 				9A8B77E92AE6DBB5004AC66A /* VIPCycle */,
 				9A8B77E72AE6DB99004AC66A /* Views */,
 				9A8B77EA2AE6DBC3004AC66A /* Model */,
-				9A8B77EB2AE6DBCB004AC66A /* Router */,
 			);
 			path = Beers;
 			sourceTree = "<group>";
@@ -137,13 +136,6 @@
 				9A6DB0932AEFF3550062D748 /* BeerModel+Seeds.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		9A8B77EB2AE6DBCB004AC66A /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		9AD43D282AD45902009EA096 = {

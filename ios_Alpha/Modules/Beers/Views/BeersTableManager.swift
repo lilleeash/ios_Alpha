@@ -7,12 +7,18 @@
 
 import UIKit
 
+// MARK: - BeersTableManagerDelegate
+protocol BeersTableManagerDelegate {
+    func didSelectRow(_ beerModel: BeersDataFlow.PresentModuleData.ItemViewModel)
+}
+
 final class BeersTableManager: NSObject {
+    var delegate: BeersTableManagerDelegate?
     var tableData: BeersDataFlow.PresentModuleData.ViewModel = []
 }
 
 // MARK: - UITableViewDataSource
-extension BeersTableManager: UITableViewDataSource {
+extension BeersTableManager: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
@@ -31,5 +37,9 @@ extension BeersTableManager: UITableViewDataSource {
         cell.configure(with: beerViewModel)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
