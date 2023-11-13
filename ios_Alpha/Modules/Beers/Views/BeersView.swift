@@ -7,23 +7,30 @@
 
 import UIKit
 
+protocol BeersTableViewDelegate {
+    func didSelectRow(_ beerModel: BeersDataFlow.PresentModuleData.ItemViewModel)
+}
+
 final class BeersView: UIView {
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = .cyan
         table.dataSource = tableManager
+        table.delegate = tableManager
         table.register(BeersTableViewCell.self, forCellReuseIdentifier: BeersTableViewCell.identifier)
         return table
     }()
     
     private lazy var tableManager = BeersTableManager()
+    var delegate: BeersTableViewDelegate?
     
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
         addSubviews()
         setUpConstraints()
+        tableManager.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +40,12 @@ final class BeersView: UIView {
     func configure(with viewModel: BeersDataFlow.PresentModuleData.ViewModel) {
         tableManager.tableData = viewModel
         tableView.reloadData()
+    }
+}
+
+extension BeersView: BeersTableManagerDelegate {
+    func didSelectRow(_ beerModel: BeersDataFlow.PresentModuleData.ItemViewModel) {
+        delegate?.didSelectRow(beerModel)
     }
 }
 

@@ -15,6 +15,7 @@ final class BeersViewController: UIViewController, BeersDisplayLogic {
     
     lazy var contentView: BeersView = {
         let view = BeersView()
+        view.delegate = self
         return view
     }()
     
@@ -42,5 +43,11 @@ final class BeersViewController: UIViewController, BeersDisplayLogic {
     
     func displayBeers(_ viewModel: BeersDataFlow.PresentModuleData.ViewModel) {
         contentView.configure(with: viewModel)
+    }
+}
+
+extension BeersViewController: BeersTableViewDelegate {
+    func didSelectRow(_ beerModel: BeersDataFlow.PresentModuleData.ItemViewModel) {
+        <#code#>
     }
 }
